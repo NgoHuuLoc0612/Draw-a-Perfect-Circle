@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-key="app_title">Draw a Perfect Circle</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚫</text></svg>">
+</head>
+<body>
+    <div id="app-container">
+        <header class="app-header">
+            <h1 data-i18n-key="app_title">Draw a Perfect Circle</h1>
+            <p data-i18n-key="app_subtitle">Test your skill by drawing the most perfect circle possible.</p>
+            <div class="language-selector-container">
+                <label for="language-selector" data-i18n-key="lang_selector">Language:</label>
+                <select id="language-selector">
+                    <option value="en">English</option>
+                    <option value="vi">Tiếng Việt</option>
+                </select>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div id="canvas-wrapper">
+                <canvas id="drawing-canvas"></canvas>
+                <canvas id="analysis-canvas"></canvas>
+            </div>
+
+            <aside id="controls-panel">
+                <div id="status-display" class="panel-section">
+                    <h2 data-i18n-key="status_title">Status</h2>
+                    <p id="game-status" data-i18n-key="status_awaiting">Awaiting new drawing...</p>
+                </div>
+
+                <div id="scoring-display" class="panel-section">
+                    <h2 data-i18n-key="analysis_title">Analysis Results</h2>
+                    <div id="score-container" class="hidden">
+                        <p><strong data-i18n-key="perfection_score">Perfection Score:</strong> <strong id="perfection-score">0.00%</strong></p>
+                        <ul id="detailed-metrics"></ul>
+                        <div id="score-submission" class="hidden">
+                            <label for="player-name" data-i18n-key="submit_score_prompt">Enter your name:</label>
+                            <input type="text" id="player-name" placeholder="Player1">
+                            <button id="submit-score-button" class="app-button" data-i18n-key="submit_score_button">Submit Score</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="leaderboard-display" class="panel-section">
+                    <h2 data-i18n-key="leaderboard_title">Leaderboard</h2>
+                    <ol id="leaderboard-list"></ol>
+                </div>
+
+                <div id="brush-controls" class="panel-section">
+                    <h2 data-i18n-key="brush_settings_title">Brush Settings</h2>
+                    <div class="control-group">
+                        <label for="brush-size" data-i18n-key="brush_size_label">Size:</label>
+                        <input type="range" id="brush-size" min="1" max="50" value="5">
+                        <span id="brush-size-value">5px</span>
+                    </div>
+                </div>
+
+                <div id="color-palette-container" class="panel-section">
+                    <h2 data-i18n-key="color_palette_title">Color Palette</h2>
+                    <div id="rgb-color-palette"></div>
+                    <div class="control-group custom-color-group">
+                        <label for="hex-color-input" data-i18n-key="custom_hex_label">Custom HEX:</label>
+                        <input type="text" id="hex-color-input" placeholder="#RRGGBB" maxlength="7">
+                    </div>
+                </div>
+
+                <div class="panel-section action-buttons">
+                    <button id="reset-button" class="app-button" data-i18n-key="clear_button">Clear Drawing</button>
+                    <button id="analyze-button" class="app-button" disabled data-i18n-key="analyze_button">Analyze Circle</button>
+                </div>
+            </aside>
+        </main>
+        
+        <footer class="app-footer">
+            <p data-i18n-key="copyright">&copy; 2025 Professional Circle Solutions Inc. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/RGB-color-palette.js"></script>
+    <script src="js/brush.js"></script>
+    <script src="js/circle.js"></script>
+    <script src="js/circle-analyzer.js"></script>
+    <script src="js/scoring.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
