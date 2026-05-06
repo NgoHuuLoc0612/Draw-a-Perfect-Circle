@@ -310,3 +310,146 @@ input[type="range"]::-webkit-slider-thumb {
 .hidden {
     display: none !important;
 }
+/* =============================================
+   UPGRADE v2: Grade, AI Review, Leaderboard
+   ============================================= */
+
+/* Grade row layout */
+.grade-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Grade badge */
+.grade-badge {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    min-width: 80px;
+    text-align: center;
+    transition: color 0.4s, text-shadow 0.4s;
+    font-family: 'Segoe UI', monospace;
+}
+
+/* Score block */
+.score-block {
+    flex: 1;
+}
+
+.score-number {
+    font-size: 2rem;
+    color: var(--success-color);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Fun label */
+.fun-label {
+    font-style: italic;
+    color: var(--warning-color);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    min-height: 1.4em;
+    border-left: 3px solid var(--warning-color);
+    padding-left: 0.75rem;
+    line-height: 1.4;
+}
+
+/* AI Review Box */
+.ai-review-box {
+    background: rgba(0, 170, 255, 0.07);
+    border: 1px solid rgba(0, 170, 255, 0.25);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.ai-badge {
+    font-size: 0.7rem;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.ai-review-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.5;
+    min-height: 2.5em;
+    font-style: italic;
+}
+
+/* Share button */
+.share-btn {
+    background-color: #6c47ff !important;
+    margin-bottom: 1rem;
+}
+.share-btn:hover {
+    background-color: #5535dd !important;
+}
+
+/* Submit score button */
+.submit-btn {
+    background-color: var(--success-color) !important;
+}
+
+/* Leaderboard grade column */
+#leaderboard-list li {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1.5rem 3.5rem;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+#leaderboard-list .grade {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Sync badge */
+.sync-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* New metric keys */
+#detailed-metrics li span {
+    color: #aaddff;
+}
+
+/* Canvas: white background for drawing visibility */
+#canvas-wrapper {
+    background-color: #f8f8f8;
+}
+
+/* Score submission */
+#score-submission {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#score-submission input {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--font-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+}

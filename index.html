@@ -6,6 +6,8 @@
     <title data-i18n-key="app_title">Draw a Perfect Circle</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚫</text></svg>">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div id="app-container">
@@ -28,29 +30,60 @@
             </div>
 
             <aside id="controls-panel">
+                <!-- Status -->
                 <div id="status-display" class="panel-section">
                     <h2 data-i18n-key="status_title">Status</h2>
                     <p id="game-status" data-i18n-key="status_awaiting">Awaiting new drawing...</p>
                 </div>
 
+                <!-- Score & Grade -->
                 <div id="scoring-display" class="panel-section">
                     <h2 data-i18n-key="analysis_title">Analysis Results</h2>
                     <div id="score-container" class="hidden">
-                        <p><strong data-i18n-key="perfection_score">Perfection Score:</strong> <strong id="perfection-score">0.00%</strong></p>
+
+                        <!-- Grade Badge -->
+                        <div class="grade-row">
+                            <div id="grade-display" class="grade-badge">—</div>
+                            <div class="score-block">
+                                <p><strong data-i18n-key="perfection_score">Perfection Score:</strong></p>
+                                <strong id="perfection-score" class="score-number">0.00%</strong>
+                            </div>
+                        </div>
+
+                        <!-- Fun label -->
+                        <p id="fun-label" class="fun-label"></p>
+
+                        <!-- AI Review -->
+                        <div id="ai-review-box" class="ai-review-box">
+                            <span class="ai-badge">🤖 AI Judge</span>
+                            <p id="ai-review" class="ai-review-text"></p>
+                        </div>
+
+                        <!-- Share -->
+                        <button id="share-button" class="app-button share-btn hidden">📥 Save Drawing</button>
+
+                        <!-- Metrics -->
                         <ul id="detailed-metrics"></ul>
+
+                        <!-- Score Submission -->
                         <div id="score-submission" class="hidden">
                             <label for="player-name" data-i18n-key="submit_score_prompt">Enter your name:</label>
-                            <input type="text" id="player-name" placeholder="Player1">
-                            <button id="submit-score-button" class="app-button" data-i18n-key="submit_score_button">Submit Score</button>
+                            <input type="text" id="player-name" placeholder="Player1" maxlength="30">
+                            <button id="submit-score-button" class="app-button submit-btn" data-i18n-key="submit_score_button">Submit Score</button>
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Leaderboard -->
                 <div id="leaderboard-display" class="panel-section">
-                    <h2 data-i18n-key="leaderboard_title">Leaderboard</h2>
+                    <h2 data-i18n-key="leaderboard_title">
+                        Leaderboard
+                        <span id="leaderboard-sync-status" class="sync-badge"></span>
+                    </h2>
                     <ol id="leaderboard-list"></ol>
                 </div>
 
+                <!-- Brush Settings -->
                 <div id="brush-controls" class="panel-section">
                     <h2 data-i18n-key="brush_settings_title">Brush Settings</h2>
                     <div class="control-group">
@@ -60,6 +93,7 @@
                     </div>
                 </div>
 
+                <!-- Color Palette -->
                 <div id="color-palette-container" class="panel-section">
                     <h2 data-i18n-key="color_palette_title">Color Palette</h2>
                     <div id="rgb-color-palette"></div>
@@ -69,22 +103,28 @@
                     </div>
                 </div>
 
+                <!-- Action buttons -->
                 <div class="panel-section action-buttons">
-                    <button id="reset-button" class="app-button" data-i18n-key="clear_button">Clear Drawing</button>
+                    <button id="reset-button"   class="app-button" data-i18n-key="clear_button">Clear Drawing</button>
                     <button id="analyze-button" class="app-button" disabled data-i18n-key="analyze_button">Analyze Circle</button>
                 </div>
             </aside>
         </main>
-        
+
         <footer class="app-footer">
-            <p data-i18n-key="copyright">&copy; 2025 Ngo Huu Loc. All Rights Reserved.</p>
+            <p data-i18n-key="copyright">&copy; 2026 Ngo Huu Loc. All Rights Reserved.</p>
         </footer>
     </div>
 
+    <!-- Config (edit this file to add your API keys) -->
+    <script src="js/config.js"></script>
+
+    <!-- App modules -->
     <script src="js/utils.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/leaderboard.js"></script>
+    <script src="js/groq-review.js"></script>
     <script src="js/RGB-color-palette.js"></script>
     <script src="js/brush.js"></script>
     <script src="js/circle.js"></script>
